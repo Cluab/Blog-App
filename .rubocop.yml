@@ -58,6 +58,3 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
-
-  RSpec/Capybara/CurrentPathExpectation:
-  Enabled: false
