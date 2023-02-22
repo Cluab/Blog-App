@@ -16,6 +16,6 @@ class Post < ApplicationRecord
   end
 
   def increment_likes_count!
-    update(likes_count: likes_count+ 1)
+    update(likes_count: likes_count + 1)
   end
 end
