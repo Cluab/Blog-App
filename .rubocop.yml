@@ -7,6 +7,7 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "vendor/**/*"
 
   DisplayCopNames: true
 
@@ -57,7 +58,4 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
-  Enabled: false
-
-  RSpec/Capybara/CurrentPathExpectation:
   Enabled: false
