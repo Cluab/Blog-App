@@ -8,10 +8,6 @@ class User < ApplicationRecord
     save!
   end
 
-  # def decrement_posts_counter!
-  #   update(posts_counter: posts_counter - 1)
-  # end
-
   def recent_posts(limit = 3)
     posts.order(created_at: :desc).limit(limit)
   end
