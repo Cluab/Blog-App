@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   subject { Post.new(title: 'A' * 251, likes_count: -1, comments_count: -1) }
