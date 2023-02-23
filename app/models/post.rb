@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: 'post_id', dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 250 }
-  validates :likes_count, numricality: { greater_then_or_equal_to: 0 }
-  validates :comments_count, numricality: { greater_then_or_equal_to: 0 }
+  validates :likes_count, numericality: { greater_then_or_equal_to: 0 }
+  validates :comments_count, numericality: { greater_then_or_equal_to: 0 }
 
   after_save :increment_author_posts_counter
 
