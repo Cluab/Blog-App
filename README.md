@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <img src="logo.png" alt="logo" width="300"  height="auto" />
   <br/>
 
   <h1>Blog App</h1>
@@ -120,4 +120,4 @@ Give a ⭐️ if you like this project!
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](./License) file for details.
