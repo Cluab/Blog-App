@@ -15,4 +15,14 @@ RSpec.describe PostsController, type: :request do
       expect(response.body).to include('Here is a list of posts for a given user')
     end
   end
+  describe 'GET /show' do
+    it 'returns the show template' do
+      user = User.create(name: 'John Doe')
+      post = Post.create(title: 'New Post', text: 'Lorem ipsum', author_id: user.id)
+      get user_post_path(id: post.id, user_id: user.id)
+      expect(response).to render_template(:show)
+      expect(response.status).to eq(200)
+      expect(response.body).to include(post.title)
+    end
+  end
 end

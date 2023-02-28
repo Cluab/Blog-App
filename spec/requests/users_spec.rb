@@ -20,7 +20,7 @@ RSpec.describe UsersController, type: :request do
     before do
       @user = User.create(name: 'John Doe')
     end
-    
+
     it 'returns the show template' do
       get user_path(id: @user.id)
       expect(response).to render_template(:show)
