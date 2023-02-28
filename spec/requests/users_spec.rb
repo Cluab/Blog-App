@@ -15,4 +15,17 @@ RSpec.describe UsersController, type: :request do
       expect(response.body).to include('Here is a list of users names')
     end
   end
+
+  describe 'GET /show' do
+    before do
+      @user = User.create(name: 'John Doe')
+    end
+    
+    it 'returns the show template' do
+      get user_path(id: @user.id)
+      expect(response).to render_template(:show)
+      expect(response.status).to eq(200)
+      expect(response.body).to include(@user.name)
+    end
+  end
 end
