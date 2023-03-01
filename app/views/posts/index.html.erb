@@ -1,6 +1,31 @@
-<h1>Here is a list of posts for a given user</h1>
-<ul>
-<% @posts.each do |post| %>
-    <li><%= link_to post.title, user_post_path(post.author_id, post.id) %></li>
-<% end %>
-</ul>
+<div class="users-list">
+    <div class="user">
+      <%= image_tag "clement-m-F_-0BxGuVvo-unsplash.jpg", class: "user-avatar" %>
+      <div class="user-info">
+        <h2><%= @user.name%></h2>
+        <p><%= pluralize(@user.posts_count, 'post') %></p>
+      </div>
+    </div>
+</div>
+<div class="recent-posts">
+  <h3>Recent Posts:</h3>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h4><%= link_to post.title, user_posts_path(post) %></h4>
+      <p><%= post.text %></p>
+      <div class="post-stats">
+        <span><%= post.comments_count %> comments</span>
+        <span><%= post.likes_count %> likes</span>
+      </div>
+      <div class="comments">
+        <% post.recent_comments.each do |comment| %>
+          <div class="comment">
+            <span><%= comment.author.name %>:</span>
+            <p><%= comment.text %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <%= button_to "Pagination", user_posts_path(@user), method: :get %>
+</div>
