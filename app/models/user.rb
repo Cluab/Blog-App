@@ -7,8 +7,7 @@ class User < ApplicationRecord
   validates :posts_count, numericality: { greater_than_or_equal_to: 0 }
 
   def increment_posts_count!
-    self.posts_count += 1
-    save!
+    update(posts_count: posts_count + 1)
   end
 
   def recent_posts(limit = 3)
