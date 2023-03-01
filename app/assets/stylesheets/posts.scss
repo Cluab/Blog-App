@@ -97,3 +97,59 @@
         }
     }
 }
+
+.post-container {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    .post-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .post-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .post-stats {
+            display: flex;
+            align-items: center;
+
+            .likes-count {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .post-text {
+        margin-bottom: 1rem;
+    }
+}
+
+.comments-container {
+    margin-top: 2rem;
+
+    h3 {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-bottom: 1rem;
+
+            .comment-author {
+                font-weight: bold;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}

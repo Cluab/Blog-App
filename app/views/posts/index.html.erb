@@ -11,7 +11,7 @@
   <h3>Recent Posts:</h3>
   <% @posts.each do |post| %>
     <div class="post">
-      <h4><%= link_to post.title, user_posts_path(post) %></h4>
+      <h4><%= link_to post.title, user_post_path(id: post.id, user_id: @user.id) %></h4>
       <p><%= post.text %></p>
       <div class="post-stats">
         <span><%= post.comments_count %> comments</span>
