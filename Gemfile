@@ -6,6 +6,7 @@ ruby '3.0.2'
 group :development do
   gem 'guard-livereload', require: false
 end
+gem 'jquery-rails'
 gem 'bootstrap_form'
 gem 'bootstrap', '~> 5.1.0'
 gem 'factory_bot_rails'

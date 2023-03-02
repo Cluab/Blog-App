@@ -11,3 +11,20 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// Get the link and add a click event listener to it
+// document.getElementById("add-comment-link").addEventListener("click", function(e) {
+//     // Prevent the default link behavior (i.e., opening the link's href)
+//     e.preventDefault();
+  
+//     // Create a new popup window
+//     var popupWindow = window.open("", "Add Comment", "width=400,height=300");
+  
+//     // Set the contents of the popup window to a form that posts to the comments#create action
+//     popupWindow.document.write(`
+//       <form action="${this.href}" method="post">
+//         <textarea name="comment[text]" placeholder="Type your comment here"></textarea>
+//         <input type="submit" value="Create Comment">
+//       </form>
+//     `);
+//   });

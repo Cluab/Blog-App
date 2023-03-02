@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
+    @comment = Comment.new
   end
 
   def create
@@ -19,11 +20,16 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @comments = Comment.where(post_id: params[:id])
+    @user = User.find(params[:user_id])
   end
 
   private
 
   def post_params
     params.require(:post).permit(:title, :text)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:text)
   end
 end
