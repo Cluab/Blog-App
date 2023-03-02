@@ -1,3 +1,68 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+a {
+  text-decoration: none;
+}
+
+.user-bio {
+  margin-top: 50px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+
+  h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+  }
+}
+
+.users-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 50px 0;
+
+  .user {
+    display: flex;
+    align-items: center;
+    margin: 50px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+    .user-avatar {
+      width: 200px;
+      height: 150px;
+      margin-right: 20px;
+      border-radius: 50%;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      gap: 3rem;
+      align-items: flex-end;
+      padding: 30px;
+
+      h2 {
+        font-size: 34px;
+        padding-bottom: 20px;
+        margin-bottom: 0;
+      }
+
+      p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

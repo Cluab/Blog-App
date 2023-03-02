@@ -1,7 +1,11 @@
-<h1>Here is a list of users names</h1>
-<ul>
-<% @users.each do |user| %>
-    <li><%= link_to user.name, user_path(user)%></li>
-<% end %>
-</ul>
-
+<div class="users-list">
+  <% @users.each do |user| %>
+    <div class="user">
+      <%= image_tag "clement-m-F_-0BxGuVvo-unsplash.jpg", class: "user-avatar" %>
+      <div class="user-info">
+        <h2><%= link_to user.name, user_path(user) %></h2>
+        <p><%= pluralize(user.posts_count, 'post') %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

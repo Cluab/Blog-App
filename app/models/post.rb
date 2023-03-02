@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   validates :likes_count, numericality: { greater_then_or_equal_to: 0 }
   validates :comments_count, numericality: { greater_then_or_equal_to: 0 }
 
-  after_save :increment_author_posts_counter
+  after_save :increment_author_posts_counter, if: :saved_change_to_author_id?
 
   def recent_comments(limit = 5)
     comments.order(created_at: :desc).limit(limit)
@@ -24,6 +24,6 @@ class Post < ApplicationRecord
   private
 
   def increment_author_posts_counter
-    author.increment_posts_count!
+    author.increment_posts_count! if author_id_previously_changed?
   end
 end

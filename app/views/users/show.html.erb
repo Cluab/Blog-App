@@ -1,4 +1,32 @@
+<div class="users-list">
+    <div class="user">
+      <%= image_tag "clement-m-F_-0BxGuVvo-unsplash.jpg", class: "user-avatar" %>
+      <div class="user-info">
+        <h2><%= @user.name%></h2>
+        <p><%= pluralize(@user.posts_count, 'post') %></p>
+      </div>
+    </div>
+</div>
+<div class="user-bio">
+  <h3>Bio:</h3>
+  <p><%= @user.bio %></p>
+</div>
+<div class="recent-posts">
+  <h3>Recent Posts:</h3>
+  <% @user.recent_posts.each do |post| %>
+    <div class="post">
+      <h4><%= post.title%></h4>
+      <p><%= post.text %></p>
+      <div class="post-stats">
+        <span><%= post.comments_count %> comments</span>
+        <span><%= post.likes_count %> likes</span>
+      </div>
+    </div>
+  <% end %>
+  <%= button_to "See All Posts", user_posts_path(@user), method: :get %>
+</div>
 
-<h1>User <%= @user.name %></h1>
-<p>photo: <%= @user.photo %></p>
-<p>bio: <%= @user.bio %></p>
+
+
+
+
