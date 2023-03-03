@@ -17,7 +17,6 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
 
   def index
     @posts = Post.where(author_id: params[:user_id])
