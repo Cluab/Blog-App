@@ -28,11 +28,9 @@
     </div>
   <% end %>
   <%= button_to "Pagination", users_path, method: :get %>
-<%= bootstrap_form_with(model: @post, local: true, class: "text-center") do |form| %>
-  <%= form.text_field :title, name: 'post[title]', label: true, class: "form-control form-control-lg mb-3", placeholder: "Title", required: true %>
-  <%= form.text_area :text, name: 'post[text]', label: false, class: "form-control form-control-lg mb-3", placeholder: "Text", required: true %>
-  <%= form.submit "Create Post", class: "btn btn-primary btn-lg d-block mx-auto" %>
-<% end %>
+<div class="new-post">
+  <p>Add another post</p>
+  <%= link_to 'Add New', new_user_post_url(@user), class: "new-post-link" %>
 
-
+</div>
 </div>

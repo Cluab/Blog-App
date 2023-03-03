@@ -1,16 +1,23 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    @comment = Comment.new
+    @user = current_user
   end
 
   def create
-    @post = current_user.posts.build(post_params)
-
-    return unless @post.save
-
-    redirect_to user_post_path(id: @post.id, user_id: current_user.id)
+    user = current_user
+    @post = Post.new(
+      title: params[:post][:title],
+      text: params[:post][:text],
+      author_id: user.id
+    )
+    if @post.save
+      redirect_to user_post_path(id: @post.id, user_id: user.id)
+    else
+      render :new
+    end
   end
+  
 
   def index
     @posts = Post.where(author_id: params[:user_id])

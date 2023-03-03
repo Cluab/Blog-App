@@ -1,0 +1,31 @@
+<div class="form-container">
+  <div class="form-errors">
+    <% @post.errors.full_messages_for(:title).each do |msg| %>
+      <div class="error"><%= msg %></div>
+    <% end %>
+    <% @post.errors.full_messages_for(:text).each do |msg| %>
+      <div class="error"><%= msg %></div>
+    <% end %>
+  </div>
+  <div class="post-form">
+  <h2>Create a new post</h2>
+
+  <%= form_with(model: @post, url: user_posts_path(@user), local: true) do |form| %>
+    <div>
+      <%= form.label :title %><br>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div>
+      <%= form.label :text %><br>
+      <%= form.text_area :text, class: "form-control" %>
+    </div>
+
+    <div>
+      <%= form.submit "Create post", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+ <%= link_to "Cancel", user_path(@user.id), class: "btn btn-secondary cancel-link" %>
+
+</div>
