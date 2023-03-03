@@ -27,5 +27,10 @@
       </div>
     </div>
   <% end %>
-  <%= button_to "Pagination", user_posts_path(@user), method: :get %>
+  <%= button_to "Pagination", users_path, method: :get %>
+<div class="new-post">
+  <p>Add another post</p>
+  <%= link_to 'Add New', new_user_post_url(@user), class: "new-post-link" %>
+
+</div>
 </div>

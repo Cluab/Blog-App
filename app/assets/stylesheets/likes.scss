@@ -1,0 +1,19 @@
+/* Styles for the post like form */
+form[action*="likes"] {
+  display: flex;
+  align-items: center;
+
+  .like-btn {
+    margin-left: 10px;
+    padding: 6px 16px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0062cc;
+    }
+  }
+}
