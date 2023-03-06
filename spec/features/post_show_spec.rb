@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'User index page', type: :feature do
   let!(:user1) { create(:user, name: 'John Doe', photo: 'clement-m-F_-0BxGuVvo-unsplash.jpg') }
   let!(:user2) { create(:user, name: 'Abdullah Hassan', photo: 'clement-m-F_-0BxGuVvo-unsplash.jpg') }
-  let!(:post1) { create(:post, author: user1, title: 'Post 1')}
+  let!(:post1) { create(:post, author: user1, title: 'Post 1') }
 
   before { visit user_post_path(user1, post1) }
 
@@ -18,16 +18,17 @@ RSpec.describe 'User index page', type: :feature do
   it 'display author name' do
     expect(page).to have_content(post1.author.name)
   end
-  
+
   it 'displays the post first 3 comments and how many comments are in a post' do
-    comment1 = create(:comment, author: user1, post:post1)
-    comment2 = create(:comment, author: user1, post:post1)
-    comment3 = create(:comment, author: user1, post:post1)
-  
-    visit user_post_path(user1,post1)
-  
-    expect(page).to have_content("Lorem ipsum dolor sit amet.", count: 3)
-    expect(page).to have_content('3 comments')
+    comments = create_list(:comment, 3, author: user1, post: post1)
+
+    visit user_post_path(user1, post1)
+
+    expect(page).to have_content("#{comments.size} comments")
+
+    comments.each do |comment|
+      expect(page).to have_content(comment.text)
+    end
   end
 
   it 'display the number of likes the post has' do
@@ -35,18 +36,17 @@ RSpec.describe 'User index page', type: :feature do
   end
 
   it 'dispaly commentor name' do
-    comment1 = create(:comment, author: user2, post:post1)
+    create(:comment, author: user2, post: post1)
 
-    visit user_post_path(user1,post1)
+    visit user_post_path(user1, post1)
 
-    expect(page).to have_content("Abdullah Hassan")
+    expect(page).to have_content('Abdullah Hassan')
   end
 
-  it 'create new post' do 
+  it 'create new post' do
     click_link('Add New Comment')
     fill_in 'comment[text]', with: 'hello text'
     click_on('Create comment')
     expect(body).to have_content('hello text')
   end
-
 end

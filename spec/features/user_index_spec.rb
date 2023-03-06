@@ -12,15 +12,15 @@ RSpec.describe 'User index page', type: :feature do
   end
 
   it 'displays profile picture for each user' do
-    expect(all("img.user-avatar").count).to eq(2)
+    expect(all('img.user-avatar').count).to eq(2)
   end
 
   it 'displays number of posts each user has written' do
     user = create(:user)
     create_list(:post, 2, author: user)
-  
+
     visit users_path
-  
+
     expect(page).to have_content("#{user.posts_count} posts")
   end
 
