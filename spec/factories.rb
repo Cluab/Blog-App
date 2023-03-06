@@ -10,6 +10,7 @@ FactoryBot.define do
     text { 'Post text.' }
     association :author, factory: :user
   end
+  
 
   factory :comment do
     association :author, factory: :user
