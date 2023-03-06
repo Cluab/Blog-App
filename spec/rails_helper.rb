@@ -1,5 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'shoulda/matchers'
+require 'capybara/rspec'
+require 'selenium-webdriver'
 require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -82,4 +84,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
 
-Capybara.default_driver = :selenium_chrome
+Capybara.default_driver = :selenium
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :firefox)
+end

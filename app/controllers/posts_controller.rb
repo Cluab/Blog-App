@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.includes(:comments, :author).find_by(id: params[:id])
     @comments = @post.comments
-    @user = User.find(params[:user_id])
+    @user = @post.author
   end
 
   private
