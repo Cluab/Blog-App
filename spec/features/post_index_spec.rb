@@ -52,6 +52,13 @@ RSpec.describe 'User index page', type: :feature do
   it 'redirects to post show page' do
     click_link('Post 1')
     expect(current_path).to eq(user_post_path(user1, post1))
-  
+  end
+
+  it 'create new post' do 
+    click_link('Add New')
+    fill_in 'post[title]', with: 'hello title'
+    fill_in 'post[text]', with: 'hello text'
+    click_on('Create post')
+    expect(body).to have_content('hello title')
   end
 end

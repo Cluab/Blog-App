@@ -37,13 +37,16 @@ RSpec.describe 'User index page', type: :feature do
   it 'dispaly commentor name' do
     comment1 = create(:comment, author: user2, post:post1)
 
-    expect(page).to have_css(".comments-container .list-group-item .comment-author[value='Abullah Hassan']")
-    
+    visit user_post_path(user1,post1)
+
+    expect(page).to have_content("Abdullah Hassan")
   end
 
-  it 'redirects to post show page' do
-    click_link('Post 1')
-    expect(current_path).to eq(user_post_path(user1, post1))
-  
+  it 'create new post' do 
+    click_link('Add New Comment')
+    fill_in 'comment[text]', with: 'hello text'
+    click_on('Create comment')
+    expect(body).to have_content('hello text')
   end
+
 end
