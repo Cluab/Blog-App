@@ -101,6 +101,12 @@ You can deploy this project using:
 - LinkedIn: [Ebrahim Al-Yousefi](https://www.linkedin.com/in/ebrahim-alyousefi/)
 - Instagram: [@27.i.b](https://www.instagram.com/27.i.b/)
 
+👤 **Abdallah Antony**
+
+- GitHub: [@abdallahmalima](https://github.com/abdallahmalima)
+- Twitter: [@softmal1](https://twitter.com/Softmal1)
+- LinkedIn: [Abdallah Antony](https://www.linkedin.com/in/abdallah-malima-antony/)
+
 ## Future Features
 
 - Add a live website feature that updates comments and likes in real-time.
