@@ -2,8 +2,8 @@
     <div class="user">
       <%= image_tag "clement-m-F_-0BxGuVvo-unsplash.jpg", class: "user-avatar" %>
       <div class="user-info">
-        <h2><%= @user.name%></h2>
-        <p><%= pluralize(@user.posts_count, 'post') %></p>
+        <h2><%= @posts[0].author.name%></h2>
+        <p><%= pluralize(@posts[0].author.posts_count, 'post') %></p>
       </div>
     </div>
 </div>
@@ -11,7 +11,7 @@
   <h3>Recent Posts:</h3>
   <% @posts.each do |post| %>
     <div class="post">
-      <h4><%= link_to post.title, user_post_path(id: post.id, user_id: @user.id) %></h4>
+      <h4><%= link_to post.title, user_post_path(id: post.id, user_id: post.author.id) %></h4>
       <p><%= post.text %></p>
       <div class="post-stats">
         <span><%= post.comments_count %> comments</span>
@@ -30,7 +30,7 @@
   <%= button_to "Pagination", users_path, method: :get %>
 <div class="new-post">
   <p>Add another post</p>
-  <%= link_to 'Add New', new_user_post_url(@user), class: "new-post-link" %>
+  <%= link_to 'Add New', new_user_post_url(@posts[0].author), class: "new-post-link" %>
 
 </div>
 </div>

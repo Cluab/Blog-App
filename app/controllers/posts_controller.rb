@@ -19,13 +19,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.where(author_id: params[:user_id])
-    @user = User.find(params[:user_id])
+    @posts = Post.includes(:author, :comments).where(author_id: params[:user_id])
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
-    @comments = Comment.where(post_id: params[:id])
+    @post = Post.includes(:comments, :author).find_by(id: params[:id])
+    @comments = @post.comments
     @user = User.find(params[:user_id])
   end
 
