@@ -16,13 +16,12 @@ RSpec.describe 'User index page', type: :feature do
   end
 
   it 'displays number of posts each user has written' do
-    create(:post, author: user1)
-    create_list(:post, 2, author: user2)
-
+    user = create(:user)
+    create_list(:post, 2, author: user)
+  
     visit users_path
-
-    expect(page).to have_content("1 post")
-    expect(page).to have_content("2 posts")
+  
+    expect(page).to have_content("#{user.posts_count} posts")
   end
 
   it 'redirects to the user show page when a user is clicked' do

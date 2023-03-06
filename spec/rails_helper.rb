@@ -84,7 +84,12 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
 
-Capybara.default_driver = :selenium
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :firefox)
+end
+
+Capybara.javascript_driver = :selenium
+
+RSpec.configure do |config|
+  config.include Capybara::DSL
 end
