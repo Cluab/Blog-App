@@ -1,5 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'shoulda/matchers'
+require 'capybara/rspec'
+require 'selenium-webdriver'
 require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -80,4 +82,14 @@ Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 RSpec.configure do |config|
   config.fixture_path = "#{Rails.root}/spec/fixtures"
   config.include FactoryBot::Syntax::Methods
+end
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :firefox)
+end
+
+Capybara.javascript_driver = :selenium
+
+RSpec.configure do |config|
+  config.include Capybara::DSL
 end

@@ -12,7 +12,7 @@ RSpec.describe UsersController, type: :request do
     end
     it 'includes the correct placeholder text in the response body' do
       get users_path
-      expect(response.body).to include('Here is a list of users names')
+      expect(response.body).to include('<div class="users-list">')
     end
   end
 
