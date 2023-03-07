@@ -6,6 +6,7 @@ ruby '3.0.2'
 group :development do
   gem 'guard-livereload', require: false
 end
+gem 'letter_opener'
 gem 'devise'
 gem 'bootstrap', '~> 5.1.0'
 gem 'bootstrap_form'

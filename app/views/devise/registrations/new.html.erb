@@ -4,6 +4,10 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :name, name: "user[name]" %><br />
+    <%= f.text_field :name, name: "user[name]" %>
+  </div>
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -26,4 +30,5 @@
   </div>
 <% end %>
 
+<%= link_to 'Resend confirmation instructions', new_user_confirmation_path %>
 <%= render "devise/shared/links" %>
