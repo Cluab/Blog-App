@@ -1,5 +1,18 @@
 a {
+  color: #007bff;
   text-decoration: none;
+  margin: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h2 {
+  color: #333;
+  font-size: 24px;
+  margin: 10px 0;
+  text-align: center;
 }
 
 .form-label {
@@ -85,12 +98,7 @@ form {
 }
 
 /* Style the header */
-h2 {
-  color: #333;
-  font-size: 24px;
-  margin: 10px 0;
-  text-align: center;
-}
+
 
 /* Style the input fields */
 .field {
@@ -130,16 +138,5 @@ h2 {
     &:hover {
       background-color: #0069d9;
     }
-  }
-}
-
-/* Style the links */
-a {
-  color: #007bff;
-  text-decoration: none;
-  margin: 10px;
-
-  &:hover {
-    text-decoration: underline;
   }
 }
