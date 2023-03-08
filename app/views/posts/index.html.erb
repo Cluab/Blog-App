@@ -18,9 +18,6 @@
       <h4><%= link_to post.title, user_post_path(id: post.id, user_id: @user.id) %></h4>
       <p><%= post.text %></p>
       <div class="post-stats">
-      <% if can? :destroy, @post %>
-  <%= button_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
         <span><%= post.comments_count %> comments</span>
         <span><%= post.likes_count %> likes</span>
       </div>
@@ -40,11 +37,11 @@
   <%= link_to 'Add New', new_user_post_url(@user), class: "new-post-link" %>
 
 </div>
+<%= link_to 'Back', user_path(@user.id) %>
 </div>
  <% else %>
 <div class="new-post">
   <%= link_to 'Add New Post', new_user_post_url(@user), class: "new-post-link" %>
-
 </div>
-
+<%= link_to 'Back', user_path(@user.id) %>
 <%end%>

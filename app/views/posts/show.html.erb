@@ -38,5 +38,5 @@
   </ul>
 
 </div>
-
+<%= link_to 'Back', user_path(@user.id) %>
 <%= link_to 'Add New Comment',  new_user_post_comment_path(@user, @post) , class: "new-comment-link" %>
