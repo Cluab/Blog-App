@@ -18,6 +18,9 @@
       <h4><%= link_to post.title, user_post_path(id: post.id, user_id: @user.id) %></h4>
       <p><%= post.text %></p>
       <div class="post-stats">
+      <% if can? :destroy, @post %>
+  <%= button_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
         <span><%= post.comments_count %> comments</span>
         <span><%= post.likes_count %> likes</span>
       </div>
