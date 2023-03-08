@@ -13,8 +13,6 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(limit)
   end
 
- 
-
   def increment_likes_count!
     update(likes_count: likes_count + 1)
   end

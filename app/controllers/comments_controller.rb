@@ -23,8 +23,9 @@ class CommentsController < ApplicationController
   def destroy
     @post = Post.find(params[:post_id])
     Comment.delete(params[:id])
-    redirect_to user_post_path( user_id: params[:user_id], id: @post.id )
+    redirect_to user_post_path(user_id: params[:user_id], id: @post.id)
   end
+
   private
 
   def comment_params
