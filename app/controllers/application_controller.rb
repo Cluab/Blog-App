@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
+  protect_from_forgery with: :exception
+  before_action :authenticate_user!
   before_action :update_allowed_parameters, if: :devise_controller?
+  # Include CanCanCan functionality
+  include CanCan::ControllerAdditions
+
+  # Catch all CanCan errors and alert the user of the exception
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: exception.message
+  end
 
   protected
 

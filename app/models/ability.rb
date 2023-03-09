@@ -1,0 +1,16 @@
+class Ability
+  include CanCan::Ability
+
+  def initialize(user)
+    user ||= User.new # guest user (not logged in)
+
+    # check if user is admin and give admin full privellage
+    if user.role == 'admin'
+      can :manage, :all
+    else
+      can :read, :all
+      can :manage, Post, author_id: user.id
+      can :manage, Comment, author_id: user.id
+    end
+  end
+end

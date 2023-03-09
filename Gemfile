@@ -8,6 +8,7 @@ group :development do
 end
 gem 'bootstrap', '~> 5.1.0'
 gem 'bootstrap_form'
+gem 'cancancan'
 gem 'devise'
 gem 'factory_bot_rails'
 gem 'jquery-rails'

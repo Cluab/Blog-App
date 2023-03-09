@@ -14,6 +14,9 @@
       <%= form.button "Like", class: "like-btn" %>
     <% end %>
   </div>
+      <% if can? :destroy, @post %>
+  <%= button_to 'Delete', user_post_path(@post.author, @post), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 </div>
 <div class="comments-container">
   <h3>Comments:</h3>
@@ -21,6 +24,9 @@
     <% @comments.each do |comment| %>
       <li class="list-group-item">
         <div class="d-flex justify-content-between">
+        <% if can? :destroy, comment %>
+  <%= button_to 'Delete',user_post_comment_path(@post.author, @post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
           <span class="comment-author"><%= comment.author.name %></span>
           <span class="comment-date"><%= comment.created_at.strftime("%b %d, %Y %H:%M") %></span>
         </div>
@@ -32,5 +38,5 @@
   </ul>
 
 </div>
-
+<%= link_to 'Back', user_path(@user.id) %>
 <%= link_to 'Add New Comment',  new_user_post_comment_path(@user, @post) , class: "new-comment-link" %>

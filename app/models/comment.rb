@@ -3,11 +3,11 @@ class Comment < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   delegate :user, to: :post
 
-  after_save :increment_post_comments_counter
+  after_save :update_comments_counter
 
   private
 
-  def increment_post_comments_counter
-    post.increment_comments_count!
+  def update_comments_counter
+    post.update(comments_count: post.comments.all.length)
   end
 end

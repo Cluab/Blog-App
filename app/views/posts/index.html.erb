@@ -37,11 +37,11 @@
   <%= link_to 'Add New', new_user_post_url(@user), class: "new-post-link" %>
 
 </div>
+<%= link_to 'Back', user_path(@user.id) %>
 </div>
  <% else %>
 <div class="new-post">
   <%= link_to 'Add New Post', new_user_post_url(@user), class: "new-post-link" %>
-
 </div>
-
+<%= link_to 'Back', user_path(@user.id) %>
 <%end%>
