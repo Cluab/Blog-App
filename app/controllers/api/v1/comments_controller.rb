@@ -6,7 +6,7 @@ class Api::V1::CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @user = User.last
+    @user = current_user
     @comment = Comment.create( author: @user, post: Post.find(params[:post_id]), text: comment_params[:text])    
     respond_to do |format|
       if @comment.save
