@@ -6,7 +6,6 @@ ruby '3.0.2'
 group :development do
   gem 'guard-livereload', require: false
 end
-gem 'rack-cors'
 gem 'bootstrap', '~> 5.1.0'
 gem 'bootstrap_form'
 gem 'cancancan'
@@ -14,6 +13,7 @@ gem 'devise'
 gem 'factory_bot_rails'
 gem 'jquery-rails'
 gem 'letter_opener'
+gem 'rack-cors'
 gem 'rails-controller-testing'
 gem 'rspec-rails', '~> 5.0.0'
 gem 'rubocop', '>= 1.0', '< 2.0'
