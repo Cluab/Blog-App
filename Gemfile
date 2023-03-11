@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.2'
+ruby '3.1.2'
 
 group :development do
   gem 'guard-livereload', require: false
@@ -13,11 +13,13 @@ gem 'devise'
 gem 'factory_bot_rails'
 gem 'jquery-rails'
 gem 'letter_opener'
+gem 'rack-cors'
 gem 'rails-controller-testing'
 gem 'rspec-rails', '~> 5.0.0'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rubocop-discourse'
 gem 'shoulda-matchers', '~> 4.0'
+gem 'tzinfo-data'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.2'
 # Use postgresql as the database for Active Record
@@ -66,6 +68,3 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
