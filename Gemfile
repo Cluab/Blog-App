@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.0.2'
 
 group :development do
   gem 'guard-livereload', require: false
@@ -16,6 +16,7 @@ gem 'letter_opener'
 gem 'rack-cors'
 gem 'rails-controller-testing'
 gem 'rspec-rails', '~> 5.0.0'
+gem 'rswag'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rubocop-discourse'
 gem 'shoulda-matchers', '~> 4.0'
