@@ -65,4 +65,4 @@ RSpec.describe 'api/comments', type: :request do
     end
   end
 end
-# rubocop:disable Metrics/BlockLength
+# rubocop:enable Metrics/BlockLength
